@@ -1,10 +1,11 @@
-
+ship ship;
 coin coin;
 boolean startGame = false;
 boolean buttonGrow = false;
 
 void setup() {
  size(400, 400); 
+ ship = new ship(200, 320);
 }
 
 void draw() {
@@ -13,6 +14,9 @@ void draw() {
  if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260 && mousePressed) {
    startGame = true;
  }
+ 
+ if (startGame == true)
+ playGame();
  
  if (startGame == false)  // if start button has not been pressed, display start menu
  startMenu();
@@ -73,6 +77,13 @@ while ((coinX1 <= coinMaxX) && (coinY1 <= coinMaxY)) {
   
   }
  }
+}
+
+void playGame() {
+  fill(100, 212, 255);
+  rectMode(CORNER);
+  rect(0, 200, 400, 200);
+  ship.displayShip();
 }
 
   

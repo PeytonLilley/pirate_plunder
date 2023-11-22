@@ -23,8 +23,16 @@ coin(float myCoinX, float myCoinY, float myCoinWidth, float myCoinHeight, float 
 void displayCoin() {
   ellipseMode(CORNER);
   fill(227, 209, 73);
-  ellipse(coinX, coinY, coinHeight, coinSideWidth);
+  ellipse(coinX, coinY, coinSideWidth, coinHeight);
   fill(255, 229, 26);
-  ellipse(coinX, coinY, coinHeight, coinWidth);
+  ellipse(coinX, coinY, coinWidth, coinHeight);
+}
+
+void moveCoinX() {
+ coinX = coinX + 30; 
+}
+
+void moveCoinY() {
+  coinY = coinY + 40;
 }
 }

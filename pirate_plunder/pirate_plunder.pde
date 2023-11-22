@@ -10,7 +10,9 @@ void setup() {
 void draw() {
  background(192, 234, 250);
  
- 
+ if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260 && mousePressed) {
+   startGame = true;
+ }
  
  if (startGame == false)  // if start button has not been pressed, display start menu
  startMenu();

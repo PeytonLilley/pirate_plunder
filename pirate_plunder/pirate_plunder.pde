@@ -1,11 +1,13 @@
 ship ship;
 coin coin;
+enemy enemy;
 boolean startGame = false;
 boolean buttonGrow = false;
 
 void setup() {
  size(400, 400); 
  ship = new ship(200, 320);
+ enemy = new enemy();
 }
 
 void draw() {
@@ -84,6 +86,7 @@ void playGame() {
   rectMode(CORNER);
   rect(0, 200, 400, 200);
   ship.displayShip();
+  enemy.displayEnemy();
 }
 
   

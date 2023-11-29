@@ -3,6 +3,10 @@ coin coin;
 enemy enemy;
 boolean startGame = false;
 boolean buttonGrow = false;
+boolean moveLeft = false;
+boolean moveRight = false;
+boolean moveUp = false;
+boolean moveDown = false;
 
 void setup() {
  size(400, 400); 
@@ -81,13 +85,45 @@ while ((coinX1 <= coinMaxX) && (coinY1 <= coinMaxY)) {
  }
 }
 
-void playGame() {
+void playGame() { //code to run the actual game
   fill(100, 212, 255);
   rectMode(CORNER);
   rect(0, 200, 400, 200);
   ship.displayShip();
   enemy.displayEnemy();
+  ship.moveShip();
 }
+  void keyPressed() {
+ if (key == 'a') {
+  moveLeft = true;
+ }
+ if (key == 'd') {
+  moveRight = true;
+ }
+ if (key == 's') {
+  moveDown = true;
+ }
+ if (key == 'w') {
+  moveUp = true; 
+ }
+}
+
+ void keyReleased() {
+ if (key == 'a') {
+  moveLeft = false;
+ }
+ if (key == 'd') {
+  moveRight = false;
+ }
+ if (key == 's') {
+  moveDown = false;
+ }
+ if (key == 'w') {
+  moveUp = false; 
+ }
+}
+
+
 
   
  

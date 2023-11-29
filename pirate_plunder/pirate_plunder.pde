@@ -12,6 +12,7 @@ boolean moveUp = false;
 boolean moveDown = false;
 boolean collision = false;
 boolean shoot = false;
+boolean cannonReset = false;
 boolean hit = false;
 
 void setup() {
@@ -34,15 +35,8 @@ void draw() {
  if (startGame == false) {  // if start button has not been pressed, display start menu
  startMenu();
 }
-
-
-if (mousePressed) {
- shoot = true;
-   if (shoot == true) {
-   cannon.location.y = (cannon.location.y + cannon.velocity.y);
-   }
 }
-}
+
 
 void startMenu() {  
   if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260) {
@@ -93,9 +87,9 @@ while ((coinX1 <= coinMaxX) && (coinY1 <= coinMaxY)) {
  for (coin c : coins) {
   c.displayCoin();
   c.moveCoinX();
-//  c.moveCoinY();
+  c.moveCoinY();
   coinX1 = coinX1 + 30;
-//  coinY1 = coinY1 + 40;
+  coinY1 = coinY1 + 40;
   
   }
  }
@@ -110,13 +104,14 @@ void playGame() { //code to run the actual game
   ship.moveShip();
   cannon.displayCannon();
   cannon.moveCannon();
+  cannon.launchCannon();
   enemy.hit();
-  
-   
 }
 
  void mousePressed() {
-  
+   if (startGame == true) {
+   shoot = true;
+   }
  }
  
   void keyPressed() {

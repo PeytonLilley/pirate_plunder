@@ -3,7 +3,7 @@
 class cannon {
   
  PVector location = new PVector(ship.shipX, ship.shipY);
- PVector velocity = new PVector(0, -1);
+ PVector velocity = new PVector(0, -5);
   
  void displayCannon() {
    ellipseMode(CENTER);
@@ -25,5 +25,18 @@ class cannon {
  if (moveUp == true) {
   cannon.location.y -= shipSpeed;
  }
+ }
+ void launchCannon() {
+  if (shoot) {
+   cannon.location.y = (cannon.location.y + cannon.velocity.y);
+   if (cannon.location.y <= 0) {
+   shoot = false;
+   cannonReset = true;
+   }
+}
+}
+
+void cannonReset() {
+  
 }
 }

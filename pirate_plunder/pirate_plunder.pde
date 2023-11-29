@@ -1,17 +1,24 @@
 ship ship;
 coin coin;
 enemy enemy;
+cannon cannon;
+
+float shipSpeed = 5;
 boolean startGame = false;
 boolean buttonGrow = false;
 boolean moveLeft = false;
 boolean moveRight = false;
 boolean moveUp = false;
 boolean moveDown = false;
+boolean collision = false;
+boolean shoot = false;
+boolean hit = false;
 
 void setup() {
  size(400, 400); 
  ship = new ship(200, 320);
  enemy = new enemy();
+ cannon = new cannon();
 }
 
 void draw() {
@@ -24,8 +31,17 @@ void draw() {
  if (startGame == true)
  playGame();
  
- if (startGame == false)  // if start button has not been pressed, display start menu
+ if (startGame == false) {  // if start button has not been pressed, display start menu
  startMenu();
+}
+
+
+if (mousePressed) {
+ shoot = true;
+   if (shoot == true) {
+   cannon.location.y = (cannon.location.y + cannon.velocity.y);
+   }
+}
 }
 
 void startMenu() {  
@@ -92,7 +108,16 @@ void playGame() { //code to run the actual game
   ship.displayShip();
   enemy.displayEnemy();
   ship.moveShip();
+  cannon.displayCannon();
+  cannon.moveCannon();
+  
+   
 }
+
+ void mousePressed() {
+  
+ }
+ 
   void keyPressed() {
  if (key == 'a') {
   moveLeft = true;

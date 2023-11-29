@@ -1,13 +1,14 @@
 // new class for enemy ships
- PVector location;
- PVector velocity;
+ 
 
 class enemy {
   
+ PVector location;
+ PVector velocity;  
+ 
   enemy() {
   location = new PVector(random(80, 320), random(40, 160));
   velocity = PVector.random2D();
-  println(velocity);
   
 }
 
@@ -25,4 +26,16 @@ void displayEnemy() {
    velocity.y = velocity.y * -1;
  }
 }
+
+void hit() {
+   if ((cannon.location.x >= location.x - 40) && (cannon.location.x <= location.x + 40)) {
+    if ((cannon.location.y >= location.y + 20) && (cannon.location.y <= location.y - 20)); {
+    hit = true;   
+ }
+   }
+  if (hit == true) {
+    println("hit");
+   }
+ }
+
 }

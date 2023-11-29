@@ -4,7 +4,6 @@ float shipX = 200;
 float shipY = 320;
 float shipWidth = 80;
 float shipHeight = 40;
-float shipSpeed = 5;
 PVector shipPosition;
 
 ship(float myShipX, float myShipY) {
@@ -35,5 +34,4 @@ void moveShip() {
   ship.shipY -= shipSpeed;
  }
 }
-
 }

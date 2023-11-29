@@ -110,6 +110,7 @@ void playGame() { //code to run the actual game
   ship.moveShip();
   cannon.displayCannon();
   cannon.moveCannon();
+  enemy.hit();
   
    
 }

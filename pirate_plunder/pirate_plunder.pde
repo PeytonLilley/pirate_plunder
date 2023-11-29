@@ -106,6 +106,7 @@ void playGame() { //code to run the actual game
   cannon.moveCannon();
   cannon.launchCannon();
   enemy.hit();
+  cannon.cannonReset();
 }
 
  void mousePressed() {

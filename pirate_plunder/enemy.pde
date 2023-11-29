@@ -28,10 +28,8 @@ void displayEnemy() {
 }
 
 void hit() {
-   if ((cannon.location.x >= enemy.location.x - 40) && (cannon.location.x <= enemy.location.x + 40)) {
-    if ((cannon.location.y <= enemy.location.y + 20) && (cannon.location.y >= enemy.location.y - 20)); {
+   if ((cannon.location.x >= enemy.location.x - 40) && (cannon.location.x <= enemy.location.x + 40) && (cannon.location.y <= enemy.location.y + 20) && (cannon.location.y >= enemy.location.y - 20)) {
     hit = true;   
- }
    }
   if (hit == true) {
     println("hit");

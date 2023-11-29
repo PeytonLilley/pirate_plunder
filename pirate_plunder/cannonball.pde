@@ -37,6 +37,11 @@ class cannon {
 }
 
 void cannonReset() {
-  
+  if (cannonReset == true) {
+    cannon.location.x = ship.shipX;
+    cannon.location.y = ship.shipY;
+    hit = false;
+    cannonReset = false;
+  }
 }
 }

@@ -1,3 +1,7 @@
+PImage enemy1;
+PImage enemy2;
+PImage enemy3;
+
 ship ship;
 coin coin;
 enemy enemy;
@@ -17,6 +21,9 @@ boolean hit = false;
 
 void setup() {
  size(400, 400); 
+ enemy1 = loadImage("enemy1.png");  // load images for ships
+ enemy2 = loadImage("enemy2.png");
+ enemy3 = loadImage("enemy3.png");
  ship = new ship(200, 320);
  enemy = new enemy();
  cannon = new cannon();
@@ -25,11 +32,11 @@ void setup() {
 void draw() {
  background(192, 234, 250);
  
- if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260 && mousePressed) {
+ if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260 && mousePressed) {  // check if start button is pressed
    startGame = true;
  }
  
- if (startGame == true)
+ if (startGame == true)  // if start button has been pressed, change to game screen
  playGame();
  
  if (startGame == false) {  // if start button has not been pressed, display start menu
@@ -39,7 +46,7 @@ void draw() {
 
 
 void startMenu() {  
-  if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260) {
+  if (mouseX > 140 && mouseX < 260 && mouseY > 200 && mouseY < 260) { // check if mouse is over the start button
   buttonGrow = true;
   } else {
     buttonGrow = false;
@@ -87,34 +94,36 @@ while ((coinX1 <= coinMaxX) && (coinY1 <= coinMaxY)) {
  for (coin c : coins) {
   c.displayCoin();
   c.moveCoinX();
-  c.moveCoinY();
+//  c.moveCoinY();
   coinX1 = coinX1 + 30;
-  coinY1 = coinY1 + 40;
+//  coinY1 = coinY1 + 40;
+ 
+  }
   }
  }
-}
+
 
 void playGame() { //code to run the actual game
   fill(100, 212, 255);
   rectMode(CORNER);
   rect(0, 200, 400, 200);
+  cannon.displayCannon();
   ship.displayShip();
   enemy.displayEnemy();
   ship.moveShip();
-  cannon.displayCannon();
   cannon.moveCannon();
   cannon.launchCannon();
   enemy.hit();
   cannon.cannonReset();
 }
 
- void mousePressed() {
+ void mousePressed() {  // when the mouse is pressed, shoot a cannonball
    if (startGame == true) {
    shoot = true;
    }
  }
  
-  void keyPressed() {
+  void keyPressed() {  // move the player ship with WASD controls
  if (key == 'a') {
   moveLeft = true;
  }
@@ -129,7 +138,7 @@ void playGame() { //code to run the actual game
  }
 }
 
- void keyReleased() {
+ void keyReleased() { 
  if (key == 'a') {
   moveLeft = false;
  }

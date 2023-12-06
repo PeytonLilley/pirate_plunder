@@ -1,3 +1,5 @@
+// create new class for player's ship
+
 class ship {
   
 float shipX = 200;
@@ -12,7 +14,7 @@ ship(float myShipX, float myShipY) {
  shipPosition = new PVector(shipX, shipY);
 }
 
-void displayShip() {
+void displayShip() {  // display player ship
  fill(250, 235, 197);
  rectMode(CENTER);
  rect(shipX, shipY, shipWidth, shipHeight);
@@ -20,17 +22,17 @@ void displayShip() {
 
 
 
-void moveShip() {
+void moveShip() {  // move ship using WASD controls
  if (moveLeft == true) {
   ship.shipX -=shipSpeed;
  }
  if (moveRight == true) {
   ship.shipX += shipSpeed;
  }
- if (moveDown == true) {
+ if (moveDown == true && ship.shipY < 380) {
   ship.shipY += shipSpeed;
  }
- if (moveUp == true && ship.shipY > 220) {
+ if (moveUp == true && ship.shipY > 220) {  // contrain to bottom half of the screen
   ship.shipY -= shipSpeed;
  }
 }

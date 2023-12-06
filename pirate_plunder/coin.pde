@@ -28,7 +28,7 @@ void displayCoin() {
   ellipse(coinX, coinY, coinWidth, coinHeight);
 }
 
-void moveCoinX() {
+void moveCoinX() {  // code to make coins equal distance from each other
  coinX = coinX + 30; 
 }
 

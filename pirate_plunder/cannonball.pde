@@ -4,6 +4,7 @@ class cannon {
   
  PVector location = new PVector(ship.shipX, ship.shipY);
  PVector velocity = new PVector(0, -5);
+ boolean moveCannon = true;
   
  void displayCannon() {
    ellipseMode(CENTER);
@@ -13,23 +14,24 @@ class cannon {
  }
  
  void moveCannon() {
- if (moveLeft == true) {
+ if (moveCannon == true && moveLeft == true) {
   cannon.location.x -= shipSpeed;
  }
- if (moveRight == true) {
+ if (moveCannon == true && moveRight == true) {
   cannon.location.x += shipSpeed;
  }
- if (moveDown == true) {
+ if (moveCannon == true && moveDown == true) {
   cannon.location.y += shipSpeed;
  }
- if (moveUp == true) {
+ if (moveCannon == true && moveUp == true && cannon.location.y > 220) {
   cannon.location.y -= shipSpeed;
  }
  }
  void launchCannon() {
   if (shoot) {
+   moveCannon = false;
    cannon.location.y = (cannon.location.y + cannon.velocity.y);
-   if (cannon.location.y <= 0) {
+   if (cannon.location.y <= 0 || (cannon.location.y < (enemy.location.y + 20)) && (cannon.location.y > (enemy.location.y - 20)) && (cannon.location.x < (enemy.location.x + 40)) && (cannon.location.x > (enemy.location.x - 40))) {
    shoot = false;
    cannonReset = true;
    }
@@ -38,6 +40,7 @@ class cannon {
 
 void cannonReset() {
   if (cannonReset == true) {
+    moveCannon = true;
     cannon.location.x = ship.shipX;
     cannon.location.y = ship.shipY;
     hit = false;

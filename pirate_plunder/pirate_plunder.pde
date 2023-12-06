@@ -90,7 +90,6 @@ while ((coinX1 <= coinMaxX) && (coinY1 <= coinMaxY)) {
   c.moveCoinY();
   coinX1 = coinX1 + 30;
   coinY1 = coinY1 + 40;
-  
   }
  }
 }

@@ -30,7 +30,7 @@ void moveShip() {
  if (moveDown == true) {
   ship.shipY += shipSpeed;
  }
- if (moveUp == true) {
+ if (moveUp == true && ship.shipY > 220) {
   ship.shipY -= shipSpeed;
  }
 }

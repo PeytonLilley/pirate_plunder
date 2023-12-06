@@ -15,9 +15,21 @@ ship(float myShipX, float myShipY) {
 }
 
 void displayShip() {  // display player ship
+ int hitPlayer = 0;
  fill(250, 235, 197);
- rectMode(CENTER);
- rect(shipX, shipY, shipWidth, shipHeight);
+ imageMode(CENTER);
+ 
+ switch(hitPlayer) {  // code to add visible damage to player ship when hit
+   case 0:
+    image(ship1, shipX, shipY);
+    break;
+   case 1:
+    image(ship2, shipX, shipY);
+    break;
+   case 2:
+    image(ship3, shipX, shipY);
+    break;
+ }
 }
 
 

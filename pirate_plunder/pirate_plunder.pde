@@ -1,6 +1,9 @@
 PImage enemy1;
 PImage enemy2;
 PImage enemy3;
+PImage ship1;
+PImage ship2;
+PImage ship3;
 
 ship ship;
 coin coin;
@@ -24,6 +27,9 @@ void setup() {
  enemy1 = loadImage("enemy1.png");  // load images for ships
  enemy2 = loadImage("enemy2.png");
  enemy3 = loadImage("enemy3.png");
+ ship1 = loadImage("ship1.png");
+ ship2 = loadImage("ship2.png");
+ ship3 = loadImage("ship3.png");
  ship = new ship(200, 320);
  enemy = new enemy();
  cannon = new cannon();

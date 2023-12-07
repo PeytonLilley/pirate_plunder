@@ -1,3 +1,6 @@
+// ship sprites from https://kenney.nl/assets/pirate-pack
+
+
 PImage enemy1;
 PImage enemy2;
 PImage enemy3;
@@ -21,6 +24,8 @@ boolean collision = false;
 boolean shoot = false;
 boolean cannonReset = false;
 boolean hit = false;
+boolean sink = false;
+int score = 0;
 
 void setup() {
  size(400, 400); 
@@ -121,6 +126,7 @@ void playGame() { //code to run the actual game
   cannon.launchCannon();
   enemy.hit();
   cannon.cannonReset();
+  showScore();
 }
 
  void mousePressed() {  // when the mouse is pressed, shoot a cannonball
@@ -157,7 +163,14 @@ void playGame() { //code to run the actual game
  if (key == 'w') {
   moveUp = false; 
  }
-}
+ }
+ 
+ void showScore() {
+   fill(0);
+   textSize(30);
+   text(score, 200, 25);  
+   }
+
 
 
 

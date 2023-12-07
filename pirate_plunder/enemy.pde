@@ -29,22 +29,36 @@ void displayEnemy() {  //display enemy ship
     break;
  }
  
+ if (hits >= 3) {
+ sink = true;  
+ }
+ 
+ if (sink == true) {  // if the ship has been sunk, make the ship reappear
+   hits = 0;
+   sink = false;
+ }
+ 
  if ((location.x > width-40) || (location.x < 40)) {  // constrain enemy to width of screen
-   velocity.x = velocity.x * -1;
+   velocity.x = velocity.x * -1; 
  }
  if ((location.y > 180) || (location.y < 20)) {
    velocity.y = velocity.y * -1;
  }
 }
 
+
 void hit() {  // code to check collision with enemy ship
+ float d = PVector.dist(ship.shipPosition, enemy.location);
+ println(d);
    if ((cannon.location.x >= enemy.location.x - 40) && (cannon.location.x <= enemy.location.x + 40) && (cannon.location.y <= enemy.location.y + 20) && (cannon.location.y >= enemy.location.y - 20)) {
     hit = true;   
    }
   if (hit == true) {
     hits = hits + 1; // change switch case to make the ship more damaged with each hit
     println("hit");
-   }
+   } 
+   if ((hit == true) && (d <= 200)) {
+    hits = hits + 2;
  }
-
+}
 }

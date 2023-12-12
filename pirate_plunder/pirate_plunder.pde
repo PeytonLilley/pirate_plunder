@@ -1,3 +1,7 @@
+//Move with WASD and click to fire your cannon. 
+//Hit the enemy pirate ship to protect your hoard of treasure.
+//Count how much treasure you have stolen with the score at the top of the screen.
+
 // ship sprites from https://kenney.nl/assets/pirate-pack
 
 
@@ -88,12 +92,11 @@ void startMenu() {
   text("PIRATE PLUNDER", 123, 165);
   text("START GAME", 147, 225);
   }
-  
-  // loop to draw coins on start menu
+   
+ // loop to draw coins on start menu
 int coinX1 = 10;
 int coinY1 = 10;
 int coinMaxX = 400;
-int coinMaxY = 400;
 
 coin = new coin(coinX1, coinY1, 15, 30, 20);
 ArrayList<coin> coins;  //initialize array list for coins
@@ -101,14 +104,11 @@ coins = new ArrayList<coin>();
 
 coins.add(new coin(coinX1, coinY1, 15, 30, 20));
 
-while ((coinX1 <= coinMaxX) && (coinY1 <= coinMaxY)) {
+while (coinX1 <= coinMaxX) {
  for (coin c : coins) {
   c.displayCoin();
   c.moveCoinX();
-//  c.moveCoinY();
   coinX1 = coinX1 + 30;
-//  coinY1 = coinY1 + 40;
- 
   }
   }
  }
@@ -127,6 +127,26 @@ void playGame() { //code to run the actual game
   enemy.hit();
   cannon.cannonReset();
   showScore();
+  gameReset();
+  
+// loop to draw coins at the top of the screen
+int coinX1 = 10;
+int coinY1 = 360;
+int coinMaxX = 400;
+
+coin = new coin(coinX1, coinY1, 15, 30, 20);
+ArrayList<coin> coins;  //initialize array list for coins
+coins = new ArrayList<coin>();
+
+coins.add(new coin(coinX1, coinY1, 15, 30, 20));
+
+while (coinX1 <= coinMaxX) {
+ for (coin c : coins) {
+  c.displayCoin();
+  c.moveCoinX();
+  coinX1 = coinX1 + 30;
+  }
+  }
 }
 
  void mousePressed() {  // when the mouse is pressed, shoot a cannonball
@@ -170,6 +190,13 @@ void playGame() { //code to run the actual game
    textSize(30);
    text(score, 200, 25);  
    }
+   
+void gameReset() {
+  if (score == 10) {
+   println("you win!");
+   startGame = false;
+  }
+}
 
 
 

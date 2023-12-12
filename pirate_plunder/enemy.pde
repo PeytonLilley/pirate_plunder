@@ -35,6 +35,7 @@ void displayEnemy() {  //display enemy ship
  
  if (sink == true) {  // if the ship has been sunk, make the ship reappear
    hits = 0;
+   println("sink!");
    sink = false;
  }
  
@@ -49,13 +50,14 @@ void displayEnemy() {  //display enemy ship
 
 void hit() {  // code to check collision with enemy ship
  float d = PVector.dist(ship.shipPosition, enemy.location);
- println(d);
+// println(d);   used to check that distance was measured properly
    if ((cannon.location.x >= enemy.location.x - 40) && (cannon.location.x <= enemy.location.x + 40) && (cannon.location.y <= enemy.location.y + 20) && (cannon.location.y >= enemy.location.y - 20)) {
     hit = true;   
    }
   if (hit == true) {
     hits = hits + 1; // change switch case to make the ship more damaged with each hit
     println("hit");
+    score = score + 1;
    } 
    if ((hit == true) && (d <= 200)) {
     hits = hits + 2;

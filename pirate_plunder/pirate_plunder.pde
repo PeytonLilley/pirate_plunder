@@ -16,6 +16,7 @@ ship ship;
 coin coin;
 enemy enemy;
 cannon cannon;
+enemyCannon enemyCannon;
 
 float shipSpeed = 5;
 boolean startGame = false;
@@ -42,6 +43,7 @@ void setup() {
  ship = new ship(200, 320);
  enemy = new enemy();
  cannon = new cannon();
+ enemyCannon = new enemyCannon();
 }
 
 void draw() {
@@ -128,8 +130,11 @@ void playGame() { //code to run the actual game
   cannon.cannonReset();
   showScore();
   gameReset();
+  enemyCannon.displayCannon();
+  enemyCannon.moveEnemyCannon();
+  enemyCannon.launchEnemy();
   
-// loop to draw coins at the top of the screen
+// loop to draw coins at the bottom of the screen
 int coinX1 = 10;
 int coinY1 = 360;
 int coinMaxX = 400;
@@ -195,6 +200,8 @@ void gameReset() {
   if (score == 10) {
    println("you win!");
    startGame = false;
+   startMenu();
+   score = 0;
   }
 }
 

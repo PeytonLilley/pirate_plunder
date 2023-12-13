@@ -7,6 +7,7 @@ float shipY = 320;
 float shipWidth = 80;
 float shipHeight = 40;
 PVector shipPosition;
+int hitPlayer = 0;
 
 ship(float myShipX, float myShipY) {
  shipX = myShipX;
@@ -15,8 +16,6 @@ ship(float myShipX, float myShipY) {
 }
 
 void displayShip() {  // display player ship
- int hitPlayer = 0;
- fill(250, 235, 197);
  imageMode(CENTER);
  
  switch(hitPlayer) {  // code to add visible damage to player ship when hit

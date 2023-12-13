@@ -132,7 +132,7 @@ void playGame() { //code to run the actual game
   gameReset();
   enemyCannon.displayCannon();
   enemyCannon.moveEnemyCannon();
-  enemyCannon.launchEnemy();
+  
   
 // loop to draw coins at the bottom of the screen
 int coinX1 = 10;
@@ -202,6 +202,13 @@ void gameReset() {
    startGame = false;
    startMenu();
    score = 0;
+  }
+  if (ship.hitPlayer == 3) {
+    println("game over!");
+    startGame = false;
+    startMenu();
+    score = 0;
+    ship.hitPlayer = 0;
   }
 }
 

@@ -14,16 +14,14 @@ class enemyCannon {
  
  void moveEnemyCannon() {  // make the cannonball stay hidden "inside" the ship until it is shot
    location = location.add(velocity);
- //  if ((location.x > width-40) || (location.x < 40)) {  //have the enemy cannon change direction with the enemy ship
- //  velocity.x = velocity.x * -1; 
- //}
- if ((location.y > 400) || (location.y < 20)) {
-   location.y = enemy.location.y;
+ if (location.y > 400) {
    location.x = enemy.location.x;
+   location.y = enemy.location.y;
  }
+ if ((location.x > ship.shipPosition.x - 80) && (location.x < ship.shipPosition.x + 80) && (location.y > ship.shipPosition.y - 70) && (location.y < ship.shipPosition.y + 40)) {  // if the player is hit, ship takes damage
+   ship.hitPlayer = ship.hitPlayer + 1;
+   location.x = enemy.location.x;
+   location.y = enemy.location.y;
  }
- 
- void launchEnemy() {
-   location.y = (location.y + velocity.y);
  }
 }
